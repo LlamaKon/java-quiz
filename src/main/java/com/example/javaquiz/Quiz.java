@@ -26,4 +26,22 @@ public class Quiz {
     public boolean isAnswer() {
         return answer;
     }
+
+
+    @Override
+    public String toString() {
+        String marubatsu = answer ? "◯" : "×";
+
+/**
+* 上記の [String marubatsu = answer ? "◯" : "×";]と同じ
+*/
+//      String marubatsu;
+//      if (answer) {
+//          marubatsu = "◯";
+//      }
+//      else {
+//          marubatsu = "×";
+//      }
+        return question + " " + marubatsu;
+    }
 }
