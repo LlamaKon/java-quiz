@@ -11,17 +11,19 @@ import java.util.List;
 @RestController
 public class JavaQuizController {
 
-    private List<String> quizzes = new ArrayList<>();
+    // Quizクラス
+    private List<Quiz> quizzes = new ArrayList<>();
 
 
     @GetMapping("/show")
-    public List<String> show() {
+    public List<Quiz> show() {
         return quizzes;
     }
 
+
     @PostMapping("/create")
     public void create(@RequestParam String question, @RequestParam boolean answer) {
-        String quiz = question + " : " + answer;
+        Quiz quiz = new Quiz(question, answer);
         quizzes.add(quiz);
     }
 }
