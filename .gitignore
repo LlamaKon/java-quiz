@@ -36,4 +36,6 @@ out/
 ### VS Code ###
 .vscode/
 
+### File ###
 sample.txt
+quizzes.txt

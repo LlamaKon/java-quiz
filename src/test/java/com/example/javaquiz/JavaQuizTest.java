@@ -8,6 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class JavaQuizTest {
 
+
     @Test
     public void toStringWhenMaru() {
 
@@ -15,11 +16,31 @@ public class JavaQuizTest {
         assertThat(quiz.toString(), is("問題文 ◯"));
     }
 
+
     @Test
     public void toStringWhenBatsu() {
 
         Quiz quiz = new Quiz("問題文", false);
         assertThat(quiz.toString(), is("問題文 ×"));
+    }
 
+
+    @Test
+    public void fromStringWhenMaru() {
+        String line = "問題文 ◯";
+        Quiz quiz = Quiz.fromString(line);
+
+        assertThat(quiz.getQuestion(), is("問題文"));
+        assertThat(quiz.isAnswer(), is(true));
+    }
+
+
+    @Test
+    public void fromStringWhenBatsu() {
+        String line = "問題文 ×";
+        Quiz quiz = Quiz.fromString(line);
+
+        assertThat(quiz.getQuestion(), is("問題文"));
+        assertThat(quiz.isAnswer(), is(false));
     }
 }
